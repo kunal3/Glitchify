@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Glichify Upload Center</title>
+
+		<!-- Google web fonts -->
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+
+		<!-- The main CSS file -->
+		<link href="upload-style.css" rel="stylesheet" />
+	</head>
+
+	<body>
+
+		<form id="upload" method="post" action="upload.php" enctype="multipart/form-data">
+			<div id="drop">
+				Drop Here
+
+				<a>Browse</a>
+				<input type="file" name="upl" multiple />
+			</div>
+
+			<ul>
+				<!-- The file uploads will be shown here -->
+			</ul>
+
+		</form>
+
+        <footer>
+            <div id="tzine-actions">
+	            <a id="tzine-download" href="view.html" target="_blank">View</a>
+            </div>
+        </footer>
+        
+		<!-- JavaScript Includes -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="jquery.knob.js"></script>
+
+		<!-- jQuery File Upload Dependencies -->
+		<script src="jquery.ui.widget.js"></script>
+		<script src="jquery.iframe-transport.js"></script>
+		<script src="jquery.fileupload.js"></script>
+		
+		<!-- Our main JS file -->
+		<script src="script.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,76 @@
+html {
+    font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+body {
+    background-color: #ffffff; 
+    margin: 0;
+}
+p {
+    color: #5d6660;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+header {
+    height: 80px;
+    background-color: #ffffff;
+}
+#header-container {
+    width: 75%;
+    margin: auto;
+}
+.col-2 {
+    width: 48%;
+    float: left;
+}
+.logo {
+    padding-top: 30px;   
+}
+.uploadBTN {
+    background-color: #6dc77a;
+    border-radius: 28px;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 26px;
+    margin-top: 33px;
+    display: inline-block;
+    font-size: 17px;
+    float: right;
+}
+#top-section-main {
+    background-image: url(../images/friends.jpg);
+    height: 740px;
+    border: none;
+}
+#top-section-content {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+}
+#top-section-content h1 {
+    font-size: 4em;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 100px;
+    margin-bottom: 15px;
+}
+#top-section-content p {
+    font-size: 1.3em;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0px;
+    
+}
+.copyright {
+    color: #ffffff;
+    font-size: .9em;
+    text-align: center;
+    display: block;
+    padding-top: 480px;
+}
