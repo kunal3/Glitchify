@@ -29,8 +29,8 @@ packages = [
 requires = []
 
 version = ''
-with open('requests/__init__.py', 'r') as fd:
-    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
+#with open('requests/__init__.py', 'r') as fd:
+#    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
                         fd.read(), re.MULTILINE).group(1)
 
 if not version:
