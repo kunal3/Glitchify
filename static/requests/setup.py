@@ -43,7 +43,7 @@ with open('HISTORY.rst', 'r', 'utf-8') as f:
 
 setup(
     name='requests',
-    version=version,
+    version="2.8.1",
     description='Python HTTP for Humans.',
     long_description=readme + '\n\n' + history,
     author='Kenneth Reitz',
