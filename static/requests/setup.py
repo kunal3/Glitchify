@@ -29,9 +29,9 @@ packages = [
 requires = []
 
 version = ''
-#with open('requests/__init__.py', 'r') as fd:
-#    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
-#                        fd.read(), re.MULTILINE).group(1)
+with open('requests/__init__.py', 'r') as fd:
+    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
+                        fd.read(), re.MULTILINE).group(1)
 
 if not version:
     raise RuntimeError('Cannot find version information')
@@ -43,7 +43,7 @@ with open('HISTORY.rst', 'r', 'utf-8') as f:
 
 setup(
     name='requests',
-    version='2.8.1',
+    version=version,
     description='Python HTTP for Humans.',
     long_description=readme + '\n\n' + history,
     author='Kenneth Reitz',
