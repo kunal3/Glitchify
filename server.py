@@ -11,8 +11,8 @@ PORT = int(os.getenv('PORT', 8000))
 # Change current directory to avoid exposure of control files
 os.chdir('static')
 execfile('requests/setup.py')
-execfile('python-firebase-1.2/setup.py')
-execfile('glitchify.py')
+#execfile('python-firebase-1.2/setup.py')
+#execfile('glitchify.py')
 httpd = Server(("", PORT), Handler)
 try:
   print("Start serving at port %i" % PORT)
