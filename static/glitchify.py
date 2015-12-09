@@ -2,9 +2,12 @@ import random
 import binascii
 import string
 
+import requests
+from firebase import firebase
+
 def main():
 
-	filename = "imgInput/michael.bmp"
+	filename = "imgIn/michael.bmp"
 
 	# ADD CODE HERE TO CALL IMG_TO_BMP
 	# NO ERROR CHECK ON FILESIZE LARGER THAN MACHINE'S MEMORY
@@ -23,11 +26,16 @@ def main():
 		#4:
 	}
 
+	widthPixels =  int(image[19]+image[18],16)
+	width = widthPixels*3
+	lengthPixels =  int(image[23]+image[22],16)
+	length = lengthPixels*3
+
 	# THIS IS COMMENTED OUT JUST FOR TESTING
 	#image = glitchFuncs[random.randint(1,len(glitchFuncs))](image, filesize)
 	image = echo(image, filesize)
 
-	f = open("imgOutput/output.bmp", "wb")
+	f = open("imgOut/output.bmp", "wb")
 	s = ""
 	for i in range(filesize):
 		s+=str(binascii.unhexlify(image[i]))
@@ -72,11 +80,6 @@ def replaceHex(image,filesize):
 	return image
 
 def echo(image, filesize):
-	widthPixels =  int(image[19]+image[18],16)
-	width = widthPixels*3
-	lengthPixels =  int(image[23]+image[22],16)
-	length = lengthPixels*3
-
 #	copyChance = 5
 	imageCopy = list(image)
 	for i in range(36, filesize-4):
