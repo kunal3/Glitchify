@@ -5,6 +5,10 @@ import string
 import requests
 from firebase import firebase
 
+import uuid
+
+fb = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
+
 def main():
 
 	filename = "imgIn/michael.bmp"
@@ -41,6 +45,10 @@ def main():
 		s+=str(binascii.unhexlify(image[i]))
 	f.write(s)		
 	f.close()
+
+	key = uuid.uuid1()
+	result = firebase.post('/imgData', image, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
+	print result
 
 def lineSwitch(image,filesize):
 	modificationChance = 10  # 10% chance of line modification
@@ -92,3 +100,5 @@ def echo(image, filesize):
 	return image
 
 main()
+
+
