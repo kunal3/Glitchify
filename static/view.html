@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="glitchify">
     <head>
         <meta charset="utf-8">
         <title>Glitchify View</title>
         <!-- Google web fonts -->
-		<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+        <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
 
-		<!-- The main CSS file -->
-		<link href="view-style.css" rel="stylesheet" />
+        <!-- The main CSS file -->
+        <link href="view-style.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     </head>
     
-    <body>
+    <body ng-controller="ImageController">
         <!--<div class="vote roundrect">
             <div class="increment up"></div>
             <div class="increment down"></div>
@@ -21,25 +22,25 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="view.js"></script>-->
         <ol class="list">
-            <li>
+            <li ng-repeat="image in images" ng-controller="ImageController" ng-init="init(image.path)">
                 <div id="showcase-container">
                     <div class="showcase">
                         <div class="col-2">
                     
-                                <div class="up">▲</div>
-                                <div class="count">0</div>
-                                <div class="down">▼</div>    
+                            <div ng-click="updateCount('upvote')" class="up">▲</div>
+                            <div class="count" ng-cloak>{{count}}</div>
+                            <div ng-click="updateCount('downvote')" class="down">▼</div>    
                              
                         </div>
                         <div class="col-2">
-                            <img class="showcasepic" src="images/apple.png">
+                            <img class="showcasepic" src="{{image.path}}">
                         </div>
                     </div>
                     
                 </div>
             </li>
             
-            <li>
+            <!-- <li>
                 <div id="showcase-container">
                     <div class="showcase">
                         <div class="col-2">
@@ -73,12 +74,37 @@
                     </div>
                     
                 </div>
-            </li>    
-            
-            
-            
-            
+            </li>     -->
         </ol>
-        
+        <!-- <script>
+            $("div.up").click(function(event) {
+                /* Act on the event */
+                console.log("event.currentTarget: ", event.currentTarget);
+                $( this ).parent().prev().before( $( this ).parent() );
+                // $( this ).next().after( $( this ) );
+                // $(this).parent()
+
+                var items = $("ul.list").children();
+                console.log("items: ", items);
+                items.each( function(i,li) { console.log(i) } );
+            });
+            $("div.down").click(function(event) {
+                /* Act on the event */
+                console.log("event.currentTarget: ", event.currentTarget);
+                // $( this ).parent().prev().before( $( this ).parent() );
+                $( this ).parent().next().after( $( this ).parent() );
+                // $(this).parent()
+
+                var items = $("ul.list").children();
+                console.log("items: ", items);
+                items.each( function(i,li) { console.log(i) } );
+            });
+        </script> -->
+
+        <!-- JAVASCRIPTS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+        <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
     </body>
 </html>
