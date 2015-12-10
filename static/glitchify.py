@@ -52,25 +52,25 @@ def main():
 # #	print result
 
 def lineSwitch(image,filesize):
-# 	modificationChance = 10  # 10% chance of line modification
-# 	lineWidth = 100  # how many 2 char hex numbers to group as a line
-# 	totalLines = len(image)/lineWidth
+	modificationChance = 10  # 10% chance of line modification
+	lineWidth = 100  # how many 2 char hex numbers to group as a line
+	totalLines = len(image)/lineWidth
 
-# 	for i in range(4, totalLines):  # start at line 4 to not mess up file encoding data 
-# 		if random.randint(1,100) <= modificationChance:
-# 			linesToMove = int(totalLines * random.random()/1000) # grabs anywhere from 0.01 to 1% of the file's lines
-# 			# try moving just one line later
+	for i in range(4, totalLines):  # start at line 4 to not mess up file encoding data 
+		if random.randint(1,100) <= modificationChance:
+			linesToMove = int(totalLines * random.random()/1000) # grabs anywhere from 0.01 to 1% of the file's lines
+			# try moving just one line later
 			
-# 			source = i*lineWidth
-# 			linesToMove = linesToMove*lineWidth
-# 			destination = random.randint(4, totalLines)*lineWidth
+			source = i*lineWidth
+			linesToMove = linesToMove*lineWidth
+			destination = random.randint(4, totalLines)*lineWidth
 
-# 			if (source+linesToMove < filesize) and (destination+linesToMove < filesize):
-# 				for j in range(linesToMove):
-# 					temp = image[source+j]
-# 					image[source+j] = image[destination+j]
-# 					image[destination+j] = temp
-# 	return image
+			if (source+linesToMove < filesize) and (destination+linesToMove < filesize):
+				for j in range(linesToMove):
+					temp = image[source+j]
+					image[source+j] = image[destination+j]
+					image[destination+j] = temp
+	return image
 
 def replaceHex(image,filesize):
 	toReplace = image[random.randint(36, filesize - 8)]
