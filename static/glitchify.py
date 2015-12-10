@@ -39,7 +39,7 @@ def main():
 
 					'func': random.randint( 1, len(glitchFuncs) ),
 					'modChance': random.randint(1,100),
-					'lineWidth': (random.randint(1,100)/100)*width,
+					'lineWidth': (random.randint(1,100)/100)*int(image[19]+image[18],16),
 					'linesToMove': (random.random()/1000)*len(image),
 					'replaceWith': binascii.hexlify(''.join([random.choice(string.ascii_letters + string.digits + ' ') for n in xrange(3)]))
 				}
