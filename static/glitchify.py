@@ -17,49 +17,52 @@ def main():
 	}
 
 	data = {}
-	# add infinite while loop
-	for inDir in inDirs:
-		for filename in os.listdir(os.getcwd()+"/"+inDir):
-			if os.path.splitext(filename)[1][1:] in ['jpg','jpeg','jiff','png','bmp']:
-				# add imgToBmp.py
-				f = open(inDir+"/"+filename, "rb")
-				image = f.read()
-				f.close()
-				image = list(image)
-				for i in range(0,len(image)):
-					image[i] = binascii.hexlify(image[i])
+	while(1):
+		for inDir in inDirs:
+			for filename in os.listdir(os.getcwd()+"/"+inDir):
+				execfile("imgToBmp.py")
+				if os.path.splitext(filename)[1][1:] =='bmp':
+					# add imgToBmp.py	
+					f = open(inDir+"/"+filename, "rb")
+					image = f.read()
+					f.close()
+					image = list(image)
+					for i in range(0,len(image)):
+						image[i] = binascii.hexlify(image[i])
 
-				data = {
-					'filename': filename,
-					'filesize': len(image),
-					'source': inDir,
-					'width': int(image[19]+image[18],16),
-					'height': int(image[23]+image[22],16),
+					data = {
+						'filename': filename,
+						'filesize': len(image),
+						'source': inDir,
+						'width': int(image[19]+image[18],16),
+						'height': int(image[23]+image[22],16),
 
-					'func': random.randint( 1, len(glitchFuncs) ),
-					'modChance': random.randint(1,100),
-					'lineWidth': (random.randint(1,100)),
-					'linesToMove': int(len(image) * random.random()/1000),
-					'replaceWith': binascii.hexlify(''.join([random.choice(string.ascii_letters + string.digits + ' ') for n in xrange(3)]))
-				}
+						'func': random.randint( 1, len(glitchFuncs) ),
+						'modChance': random.randint(1,100),
+						'lineWidth': (random.randint(1,100)),
+						'linesToMove': int(len(image) * random.random()/1000),
+						'replaceWith': binascii.hexlify(''.join([random.choice(string.ascii_letters + string.digits + ' ') for n in xrange(3)]))
+					}
 
-				data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
-				while(data['toReplace'] in image[random.randint(0,36)]):
 					data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
+					while(data['toReplace'] in image[random.randint(0,36)]):
+						data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
 
-				key = uuid.uuid1()
-				#result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
-				os.system("curl -X PUT -d '{"+str(key)+":"+json.dumps(data)+"}'' https://glitchify.firebaseio.com/images.json")
+					key = uuid.uuid1()
+					#result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
+	#				os.system("curl -X PUT -d \'{\""+str(key)+"\":\""+json.dumps(data)+"\"}\' https://glitchify.firebaseio.com/images.json")
+					hi = json.dumps(data)
+					os.system(r'curl -X PUT -d ''{"'+str(key)+'":"'+hi+'"}'' https://glitchify.firebaseio.com/images.json')
 
-				glitched = glitchFuncs[ data['func'] ](image, data)
-				#print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
+					glitched = glitchFuncs[ data['func'] ](image, data)
+					#print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
 
-				f = open('imgOut/'+data['filename'], "wb")
-				s = ""
-				for i in range(data['filesize']):
-					s+=str(binascii.unhexlify(glitched[i]))
-				f.write(s)		
-				f.close()
+					f = open('imgOut/'+data['filename'], "wb")
+					s = ""
+					for i in range(data['filesize']):
+						s+=str(binascii.unhexlify(glitched[i]))
+					f.write(s)		
+					f.close()
 
 def lineSwitch(image,data):
 	return image
