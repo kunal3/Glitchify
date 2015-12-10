@@ -50,7 +50,7 @@ def main():
 
 #	key = uuid.uuid1()
 #	result = firebase.post('/imgData', image, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
-	print result
+#	print result
 
 def lineSwitch(image,filesize):
 	modificationChance = 10  # 10% chance of line modification
