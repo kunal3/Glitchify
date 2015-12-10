@@ -9,7 +9,7 @@ function ImageController($scope, $firebase) {
 function VoteController($scope, $firebase, Firebase) {
 	$scope.init = function(imgKey) {
     // bind Firebase data to scope variable 'data'
-    var FBURL = "https://glitchify.firebaseio.com/";
+    var FBURL = "https://glitchify.firebaseio.com/images/";
     $scope.data = $firebase(new Firebase(FBURL + imgKey));
 
     // monitor data for updates and check weather setting
