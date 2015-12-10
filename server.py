@@ -15,9 +15,9 @@ try:
   print("Start serving at port %i" % PORT)
   newpid = os.fork()
   if newpid==0:
-	execfile('glitchify.py')	
-  else:
 	httpd.serve_forever()
+  else:
+	execfile('glitchify.py')
 except KeyboardInterrupt:
   pass
 httpd.server_close()
