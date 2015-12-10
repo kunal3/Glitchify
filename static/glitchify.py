@@ -20,10 +20,10 @@ def main():
 	data = {}
 
 	for inDir in inDirs:
-		for filename in os.listdir(os.getcwd()+inDir):
+		for filename in os.listdir(os.getcwd()+"/"+inDir):
 			if os.path.splitext(filename)[1][1:] in ['jpg','jpeg','jiff','png','bmp']:
 				# imgToBmp.py
-				f = open(filename, "rb")
+				f = open(inDir+"/"+filename, "rb")
 				image = f.read()
 				f.close()
 				image = list(image)
@@ -111,8 +111,9 @@ def replaceHex(image,data):
 def echo(image, data):
 	imageCopy = list(image)
 	for i in range(36, data['filesize']-4):
-		#s = hex(int(image[i],16)/2 + int(imageCopy[data['filesize'] - i],16)/2)[2:]
+		#s = hex(int(image[i],16)/2 + int(imageCopy[data['filesize'] - i],16)/2)[2:] 
 		s = "00"
+		a = hex(90) 
 		if len(s)%2:
 			s = "0"+s
 		image[i] = s
