@@ -21,6 +21,8 @@ def main():
 		#4:
 	}
 
+	
+
 	data = {}
 
 	for inDir in inDirs:
