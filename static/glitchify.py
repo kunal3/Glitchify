@@ -2,9 +2,10 @@ import random
 import binascii
 import string
 import os
+import uuid
 
-#import requests
-#from firebase import firebase
+import requests
+from firebase import firebase
 
 def main():
 
