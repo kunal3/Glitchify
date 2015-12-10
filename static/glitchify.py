@@ -27,13 +27,14 @@ def main():
 				execfile("imgToBmp.py")
 				if os.path.splitext(filename)[1][1:] =='bmp':
 					# add imgToBmp.py	
+					print "Here1"
 					f = open(inDir+"/"+filename, "rb")
 					image = f.read()
 					f.close()
 					image = list(image)
 					for i in range(0,len(image)):
 						image[i] = binascii.hexlify(image[i])
-
+					print "Here2"
 					data = {
 						'filename': filename,
 						'filesize': len(image),
@@ -47,24 +48,26 @@ def main():
 						'linesToMove': int(len(image) * random.random()/1000),
 						'replaceWith': binascii.hexlify(''.join([random.choice(string.ascii_letters + string.digits + ' ') for n in xrange(3)]))
 					}
-
+					print "Here3"
 					data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
 					while(data['toReplace'] in image[random.randint(0,36)]):
 						data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
-
+					print "Here4"
 					key = uuid.uuid1()
 					#result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
 	#				os.system("curl -X PUT -d \'{\""+str(key)+"\":\""+json.dumps(data)+"\"}\' https://glitchify.firebaseio.com/images.json")
 					hi = json.dumps(data)
 					#os.system(r'curl -X PUT -d ''{"'+str(key)+'":"'+hi+'"}'' https://glitchify.firebaseio.com/images.json')
-
+					print "Here5"
 					glitched = glitchFuncs[ data['func'] ](image, data)
 					print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
-
+					print "Here6"
 					f = open('imgOut/'+data['filename'], "wb")
 					s = ""
+					print "Here7"
 					for i in range(data['filesize']):
 						s+=str(binascii.unhexlify(glitched[i]))
+					print "Here8"
 					f.write(s)		
 					f.close()
 
