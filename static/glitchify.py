@@ -3,11 +3,11 @@ import binascii
 import string
 
 import requests
-from firebase import firebase
+#from firebase import firebase
 
 import uuid
 
-fb = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
+#fb = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
 
 def main():
 
@@ -47,7 +47,7 @@ def main():
 	f.close()
 
 	key = uuid.uuid1()
-	result = firebase.post('/imgData', image, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
+#	result = firebase.post('/imgData', image, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
 	print result
 
 def lineSwitch(image,filesize):
