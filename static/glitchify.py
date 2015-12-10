@@ -12,7 +12,7 @@ import string
 def main():
 
  	filename = "imgIn/michael.bmp"
-
+ 	print "HI MICAEHL"
 # 	# ADD CODE HERE TO CALL IMG_TO_BMP
 # 	# NO ERROR CHECK ON FILESIZE LARGER THAN MACHINE'S MEMORY
 # 	try:
