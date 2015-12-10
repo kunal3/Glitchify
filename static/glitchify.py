@@ -1,6 +1,7 @@
 import random
 import binascii
 import string
+import os
 
 #import requests
 #from firebase import firebase
@@ -26,12 +27,12 @@ def main():
 				image = f.read()
 				f.close()
 				image = list(image)
-				data['filesize'] = len(image)
-				for i in range(0,data['filesize']):
+				for i in range(0,len(image)):
 					image[i] = binascii.hexlify(image[i])
 
 				data = {
 					'filename': filename,
+					'filesize': len(image),
 					'source': inDir,
 					'width': int(image[19]+image[18],16),
 					'height': int(image[23]+image[22],16),
@@ -39,7 +40,7 @@ def main():
 					'func': random.randint( 1, len(glitchFuncs) ),
 					'modChance': random.randint(1,100),
 					'lineWidth': (random.randint(1,100)/100)*width,
-					'linesToMove': (random.random()/1000)*data['filesize'],
+					'linesToMove': (random.random()/1000)*len(image),
 					'replaceWith': binascii.hexlify(''.join([random.choice(string.ascii_letters + string.digits + ' ') for n in xrange(3)]))
 				}
 
