@@ -24,17 +24,18 @@ def main():
  	filesize = len(image)
  	for i in range(0,filesize):
  		image[i] = binascii.hexlify(image[i])
-# 	glitchFuncs = {
-# 		1:	lineSwitch,
-# 		2:	replaceHex,
-# 		3:  echo
-# 		#4:
-# 	}
+	#here
+	glitchFuncs = {
+		1:	lineSwitch,
+		2:	replaceHex,
+		3:  echo
+		#4:
+	}
 
-# 	widthPixels =  int(image[19]+image[18],16)
-# 	width = widthPixels*3
-# 	lengthPixels =  int(image[23]+image[22],16)
-# 	length = lengthPixels*3
+	widthPixels =  int(image[19]+image[18],16)
+	width = widthPixels*3
+	lengthPixels =  int(image[23]+image[22],16)
+	length = lengthPixels*3
 
 # 	# THIS IS COMMENTED OUT JUST FOR TESTING
 # 	#image = glitchFuncs[random.randint(1,len(glitchFuncs))](image, filesize)
