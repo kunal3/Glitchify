@@ -12,7 +12,7 @@
 
     </head>
     
-    <body ng-controller="ImageController">
+    <body ng-controller="ImageController" >
         <!--<div class="vote roundrect">
             <div class="increment up"></div>
             <div class="increment down"></div>
@@ -22,7 +22,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="view.js"></script>-->
         <ol class="list">
-            <li ng-repeat="image in images" ng-controller="ImageController" ng-init="init(image.path)">
+            <li ng-repeat="image in images" ng-controller="VoteController" ng-init="init(image.key)">
                 <div id="showcase-container">
                     <div class="showcase">
                         <div class="col-2">
@@ -38,6 +38,7 @@
                              
                         </div>
                         <div class="col-2">
+                            {{image.path}}
                             <img class="showcasepic" src="{{image.path}}">
                         </div>
                     </div>

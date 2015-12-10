@@ -9,7 +9,10 @@ function ImageController($scope, $firebase, Firebase) {
 	  	for(var key in snap) {
 	  		console.log("key: ", key);
 	  		console.log("snap[key]['filename']: ", snap[key]['filename']);
-	  		$scope.images.push({'path': 'images/'+snap[key]['filename']})
+	  		$scope.images.push({
+	  			'path': 'imgOut/'+snap[key]['filename'],
+	  			'key': key
+	  		});
 	  	}
 	  }
 	  console.log("$scope.images: ", $scope.images);
