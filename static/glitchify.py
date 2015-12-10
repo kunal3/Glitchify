@@ -4,6 +4,7 @@ import string
 import os
 import uuid
 import json
+import subprocess
 
 def main():
 
@@ -49,7 +50,8 @@ def main():
 					while(data['toReplace'] in image[random.randint(0,36)]):
 						data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
 					key = uuid.uuid1()
-					os.system("curl -X POST -d \'{\""+str(key)+"\":"+json.dumps(data)+"}\' https://glitchify.firebaseio.com/images.json")
+					directOutput = subprocess.check_output("curl -X POST -d \'{\""+str(key)+"\":"+json.dumps(data)+"}\' https://glitchify.firebaseio.com/images.json",shell = True)
+					#os.system("curl -X POST -d \'{\""+str(key)+"\":"+json.dumps(data)+"}\' https://glitchify.firebaseio.com/images.json")
 					glitched = glitchFuncs[ data['func'] ](image, data)
 					f = open('imgOut/'+data['filename'], "wb")
 					s = ""
