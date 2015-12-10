@@ -4,6 +4,7 @@ import string
 import os
 import uuid
 import json
+import subprocess
 
 def main():
 
@@ -15,7 +16,6 @@ def main():
 		3:  echo
 		#4:
 	}
-
 
 	data = {}
 	while(1):
@@ -49,9 +49,9 @@ def main():
 					while(data['toReplace'] in image[random.randint(0,36)]):
 						data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
 					key = uuid.uuid1()
-					os.system("curl -X PUT -d \'{\""+str(key)+"\":"+json.dumps(data)+"}\' https://glitchify.firebaseio.com/images.json")
+					directOutput = subprocess.check_output("curl -X POST -d \'"+json.dumps(data)+"\' https://glitchify.firebaseio.com/images.json",shell = True)
 					glitched = glitchFuncs[ data['func'] ](image, data)
-					print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
+					print "Ran " + str(glitchFuncs[data['func']]) + " on " + filename
 					f = open('imgOut/'+data['filename'], "wb")
 					s = ""
 					for i in range(data['filesize']):
@@ -87,18 +87,14 @@ def replaceHex(image,data):
 	return image
 
 def echo(image, data):
-	return image
-	# add fix
-	# imageCopy = list(image)
-	# for i in range(36, data['filesize']-4):
-	# 	#s = hex(int(image[i],16)/2 + int(imageCopy[data['filesize'] - i],16)/2)[2:] 
-	# 	s = "00"
-	# 	a = hex(90) 
-	# 	if len(s)%2:
-	# 		s = "0"+s
-	# 	image[i] = s
+	imageCopy = list(image)
+	for i in range(36, data['filesize']-4):
+		s = hex(int(image[i],16)/2 + int(imageCopy[data['filesize'] - i],16)/2)[2:] 
+		if len(s)%2:
+			s = "0"+s
+		image[i] = s
 
-	#return image
+	return image
 
 main()
 
