@@ -49,9 +49,8 @@ def main():
 					while(data['toReplace'] in image[random.randint(0,36)]):
 						data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
 					key = uuid.uuid1()
-					os.system("curl -X PUT -d \'{\""+str(key)+"\":"+json.dumps(data)+"}\' https://glitchify.firebaseio.com/images.json")
+					os.system("curl -X POST -d \'{\""+str(key)+"\":"+json.dumps(data)+"}\' https://glitchify.firebaseio.com/images.json")
 					glitched = glitchFuncs[ data['func'] ](image, data)
-					print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
 					f = open('imgOut/'+data['filename'], "wb")
 					s = ""
 					for i in range(data['filesize']):
