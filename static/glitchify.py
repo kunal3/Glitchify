@@ -39,12 +39,12 @@ def main():
 	#image = glitchFuncs[random.randint(1,len(glitchFuncs))](image, filesize)
 	#image = echo(image, filesize)
 
-	f = open("imgOut/output.bmp", "wb")
-	s = ""
-	for i in range(filesize):
-		s+=str(binascii.unhexlify(image[i]))
+	#f = open("imgOut/output.bmp", "wb")
+	#s = ""
+	#for i in range(filesize):
+	#	s+=str(binascii.unhexlify(image[i]))
 	#f.write(s)		
-	f.close()
+	#f.close()
 
 #	key = uuid.uuid1()
 #	result = firebase.post('/imgData', image, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
