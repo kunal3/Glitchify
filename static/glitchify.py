@@ -88,18 +88,18 @@ def replaceHex(image,data):
 	return image
 
 def echo(image, data):
-	return image
-	# add fix
-	# imageCopy = list(image)
-	# for i in range(36, data['filesize']-4):
-	# 	#s = hex(int(image[i],16)/2 + int(imageCopy[data['filesize'] - i],16)/2)[2:] 
-	# 	s = "00"
-	# 	a = hex(90) 
-	# 	if len(s)%2:
-	# 		s = "0"+s
-	# 	image[i] = s
-
 	#return image
+	# add fix
+	imageCopy = list(image)
+	for i in range(36, data['filesize']-4):
+		s = hex(int(image[i],16)/2 + int(imageCopy[data['filesize'] - i],16)/2)[2:] 
+		#s = "00"
+		a = hex(90) 
+		if len(s)%2:
+			s = "0"+s
+		image[i] = s
+
+	return image
 
 main()
 
