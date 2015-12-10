@@ -15,12 +15,11 @@ def main():
  	print "HI MICAEHL"
 # 	# ADD CODE HERE TO CALL IMG_TO_BMP
 # 	# NO ERROR CHECK ON FILESIZE LARGER THAN MACHINE'S MEMORY
-# 	try:
-# 		f = open(filename, "rb")
-# 		image = f.read()
-# 		f.close()
-# 	except IOError:
-# 		print "FUCKING OPEN THIS FUCKING FILE" 
+# 	
+	f = open(filename, "rb")
+	image = f.read()
+	f.close()
+	print "FUCKING OPEN THIS FUCKING FILE" 
 # 	image = list(image)
 # 	filesize = len(image)
 # 	for i in range(0,filesize):
