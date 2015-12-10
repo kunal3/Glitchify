@@ -52,7 +52,8 @@ def main():
 # #	result = firebase.post('/imgData', image, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
 # #	print result
 
-# def lineSwitch(image,filesize):
+def lineSwitch(image,filesize):
+	pass
 # 	modificationChance = 10  # 10% chance of line modification
 # 	lineWidth = 100  # how many 2 char hex numbers to group as a line
 # 	totalLines = len(image)/lineWidth
@@ -73,8 +74,8 @@ def main():
 # 					image[destination+j] = temp
 # 	return image
 
-# def replaceHex(image,filesize):
-
+def replaceHex(image,filesize):
+	pass
 # 	toReplace = image[random.randint(36, filesize - 8)]
 # 	replaceWith = binascii.hexlify(''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(3)]))
 	
@@ -89,7 +90,8 @@ def main():
 # 			# try simply adding int values to the hex
 # 	return image
 
-# def echo(image, filesize):
+def echo(image, filesize):
+	pass
 # #	copyChance = 5
 # 	imageCopy = list(image)
 # 	for i in range(36, filesize-4):
