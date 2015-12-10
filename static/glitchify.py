@@ -1,6 +1,6 @@
-# import random
-# import binascii
-# import string
+import random
+import binascii
+import string
 
 # #import requests
 # #from firebase import firebase
