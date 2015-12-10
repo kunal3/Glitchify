@@ -52,10 +52,10 @@ def main():
 					#result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
 	#				os.system("curl -X PUT -d \'{\""+str(key)+"\":\""+json.dumps(data)+"\"}\' https://glitchify.firebaseio.com/images.json")
 					hi = json.dumps(data)
-					os.system(r'curl -X PUT -d ''{"'+str(key)+'":"'+hi+'"}'' https://glitchify.firebaseio.com/images.json')
+					#os.system(r'curl -X PUT -d ''{"'+str(key)+'":"'+hi+'"}'' https://glitchify.firebaseio.com/images.json')
 
 					glitched = glitchFuncs[ data['func'] ](image, data)
-					#print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
+					print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
 
 					f = open('imgOut/'+data['filename'], "wb")
 					s = ""
