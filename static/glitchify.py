@@ -20,10 +20,10 @@ def main():
 	image = f.read()
 	f.close()
 	print "FUCKING OPEN THIS FUCKING FILE" 
-# 	image = list(image)
-# 	filesize = len(image)
-# 	for i in range(0,filesize):
-# 		image[i] = binascii.hexlify(image[i])
+ 	image = list(image)
+ 	filesize = len(image)
+ 	for i in range(0,filesize):
+ 		image[i] = binascii.hexlify(image[i])
 # 	glitchFuncs = {
 # 		1:	lineSwitch,
 # 		2:	replaceHex,
