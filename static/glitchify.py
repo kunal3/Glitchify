@@ -5,9 +5,9 @@ import os
 import uuid
 
 # import requests
-from firebase import firebase
+#from firebase import firebase
 
-fbase = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
+#fbase = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
 		#4:
 	}
 
-	
+
 
 	data = {}
 
@@ -45,8 +45,8 @@ def main():
 
 					'func': random.randint( 1, len(glitchFuncs) ),
 					'modChance': random.randint(1,100),
-					'lineWidth': (random.randint(1,100)/100)*int(image[19]+image[18],16),
-					'linesToMove': (random.random()/1000)*len(image),
+					'lineWidth': (random.randint(1,100)),
+					'linesToMove': int(len(image) * random.random()/1000),
 					'replaceWith': binascii.hexlify(''.join([random.choice(string.ascii_letters + string.digits + ' ') for n in xrange(3)]))
 				}
 
@@ -55,14 +55,14 @@ def main():
 					data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
 
 				key = uuid.uuid1()
-				result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
-				print result
+				#result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
+				#print result
 
-				glitched = glitchFuncs[ func ](image, data)
-				print 'Ran '+func
+				glitched = glitchFuncs[ data['func'] ](image, data)
+				print "Ran "+str(glitchFuncs[data['func']])
 
 				f = open('imgOut/'+data['filename'], "wb")
-				s = ''
+				s = ""
 				for i in range(data['filesize']):
 					s+=str(binascii.unhexlify(glitched[i]))
 				f.write(s)		
@@ -76,7 +76,7 @@ def main():
 def lineSwitch(image,data):
 	# data['modChance'] = 10  # 10% chance of line modification
 	# data['lineWidth'] = 100  # how many 2 char hex numbers to group as a line
-	totalLines = (len(image) - 36) / data['lineWidth']
+	totalLines = (int)((len(image) - 36) / float(data['lineWidth']))
 	min = int(36 / data['lineWidth']) + (36 % data['lineWidth'] > 0)
 
 	for i in range(min, totalLines-1):  # start at line 4 to not mess up file encoding data 
@@ -88,15 +88,15 @@ def lineSwitch(image,data):
 			# linesToMove = linesToMove*data['lineWidth']
 			dest = random.randint(min, totalLines-1) * data['lineWidth']
 
-			temp = image[ src : (src + data['lineWidth']) ]
-			image[src] = image[ dest : (dest + data['lineWidth']) ]
-			image[dest] = temp
+			#temp = image[ src : (src + data['lineWidth']) ]
+			#image[src] = image[ dest : (dest + data['lineWidth']) ]
+			#image[dest] = temp
 
-			# if (src+linesToMove < data['filesize']) and (dest+linesToMove < data['filesize']):
-			# 	for j in range(linesToMove):
-			# 		temp = image[src+j]
-			# 		image[src+j] = image[dest+j]
-			# 		image[dest+j] = temp
+			if (src+data['linesToMove'] < data['filesize']) and (dest+data['linesToMove'] < data['filesize']):
+			 	for j in range(data['linesToMove']):
+			 		temp = image[src+j]
+			 		image[src+j] = image[dest+j]
+			 		image[dest+j] = temp
 	return image
 
 def replaceHex(image,data):
