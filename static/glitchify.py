@@ -5,7 +5,7 @@ import string
 #import requests
 #from firebase import firebase
 
-import uuid
+#import uuid
 
 #fb = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
 
@@ -46,7 +46,7 @@ def main():
 	f.write(s)		
 	f.close()
 
-	key = uuid.uuid1()
+#	key = uuid.uuid1()
 #	result = firebase.post('/imgData', image, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
 	print result
 
