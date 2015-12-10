@@ -1,1 +1,2 @@
+--allow-all-external
 PIL==1.1.7
