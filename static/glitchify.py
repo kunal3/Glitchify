@@ -50,7 +50,7 @@ def main():
 				#result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
 				#print result
 
-				json.dumps(data)
+				#json.dumps(data)
 
 				glitched = glitchFuncs[ data['func'] ](image, data)
 				print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
