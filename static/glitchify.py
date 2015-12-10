@@ -95,7 +95,7 @@ def echo(image, data):
 	imageCopy = list(image)
 	print "hi"
 	for i in range(36, data['filesize']-4):
-		s = hex(int(image[i],0)/2 + int(imageCopy[data['filesize'] - i],0)/2)[2:] 
+		s = hex(int(image[i],16)/2 + int(imageCopy[data['filesize'] - i],16)/2)[2:] 
 		#s = "00"
 		print "Now"
 		print image[i]
