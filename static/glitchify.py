@@ -9,9 +9,9 @@ import string
 
 # #fb = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
 
-# def main():
+def main():
 
-# 	filename = "imgIn/michael.bmp"
+ 	filename = "imgIn/michael.bmp"
 
 # 	# ADD CODE HERE TO CALL IMG_TO_BMP
 # 	# NO ERROR CHECK ON FILESIZE LARGER THAN MACHINE'S MEMORY
@@ -101,6 +101,6 @@ import string
 
 # 	return image
 
-# main()
+main()
 
 
