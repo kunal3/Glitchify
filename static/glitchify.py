@@ -37,13 +37,13 @@ def main():
 
 	# THIS IS COMMENTED OUT JUST FOR TESTING
 	#image = glitchFuncs[random.randint(1,len(glitchFuncs))](image, filesize)
-	image = echo(image, filesize)
+	#image = echo(image, filesize)
 
 	f = open("imgOut/output.bmp", "wb")
 	s = ""
 	for i in range(filesize):
 		s+=str(binascii.unhexlify(image[i]))
-	f.write(s)		
+	#f.write(s)		
 	f.close()
 
 #	key = uuid.uuid1()
