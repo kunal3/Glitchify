@@ -5,9 +5,9 @@ import string
 import requests
 from firebase import firebase
 
-# #import uuid
+import uuid
 
-# #fb = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
+fb = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
 
 def main():
 
