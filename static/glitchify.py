@@ -39,7 +39,7 @@ def main():
 # 	# THIS IS COMMENTED OUT JUST FOR TESTING
 # 	#image = glitchFuncs[random.randint(1,len(glitchFuncs))](image, filesize)
 	image = lineSwitch(image, filesize)
-	print "LINESWITCH"
+	print "kwoefjwoifiwrgiergheirughuerighuierghuierghuierg"
 	f = open("imgOut/output.bmp", "wb")
 	s = ""
 	for i in range(filesize):
