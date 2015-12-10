@@ -86,7 +86,7 @@ def echo(image, filesize):
 	imageCopy = list(image)
 	for i in range(36, filesize-4):
 		#s = hex(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)[2:]
-		s = hex(int(image[i])/2)
+		s = int(image[i],16)/2
 		s = str(s)
 		#print (int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)
 		#print str(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)
