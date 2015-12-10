@@ -50,7 +50,7 @@ def main():
 						data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
 					key = uuid.uuid1()
 					directOutput = subprocess.check_output("curl -X POST -d \'"+json.dumps(data)+"\' https://glitchify.firebaseio.com/images.json",shell = True)
-					#glitched = glitchFuncs[ data['func'] ](image, data)
+					glitched = glitchFuncs[ data['func'] ](image, data)
 					print "Ran " + str(glitchFuncs[data['func']]) + " on " + filename
 					f = open('imgOut/'+data['filename'], "wb")
 					s = ""
