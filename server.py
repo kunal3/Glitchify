@@ -1,5 +1,4 @@
 import os
-import requests
 try:
   from SimpleHTTPServer import SimpleHTTPRequestHandler as Handler
   from SocketServer import TCPServer as Server
@@ -12,7 +11,7 @@ PORT = int(os.getenv('PORT', 8000))
 # Change current directory to avoid exposure of control files
 os.chdir('static')
 
-#execfile('glitchify.py')
+execfile('glitchify.py')
 httpd = Server(("", PORT), Handler)
 try:
   print("Start serving at port %i" % PORT)
