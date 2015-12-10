@@ -16,9 +16,13 @@ def main():
 		#4:
 	}
 
+
 	data = {}
 	while(1):
 		for inDir in inDirs:
+
+			# need some kind of check to only run this if new image added
+
 			for filename in os.listdir(os.getcwd()+"/"+inDir):
 				execfile("imgToBmp.py")
 				if os.path.splitext(filename)[1][1:] =='bmp':
