@@ -1,2 +1,4 @@
 --allow-all-external
+--allow-external PIL
+--allow-unverified PIL
 PIL==1.1.7
