@@ -2,7 +2,7 @@ import random
 import binascii
 import string
 
-import requests
+#import requests
 #from firebase import firebase
 
 import uuid
