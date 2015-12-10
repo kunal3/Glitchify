@@ -4,8 +4,11 @@ import string
 import os
 import uuid
 
-import requests
+# import requests
 from firebase import firebase
+
+fbase = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
+
 
 def main():
 
@@ -50,7 +53,7 @@ def main():
 					data['toReplace'] = image[random.randint(36, data['filesize'] - 8)]
 
 				key = uuid.uuid1()
-				result = firebase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
+				result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
 				print result
 
 				glitched = glitchFuncs[ func ](image, data)
