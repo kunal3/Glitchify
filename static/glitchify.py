@@ -18,7 +18,6 @@ def main():
 	f = open(filename, "rb")
 	image = f.read()
 	f.close()
-	print "FUCKING OPEN THIS FUCKING FILE" 
  	image = list(image)
  	filesize = len(image)
  	for i in range(0,filesize):
@@ -38,8 +37,8 @@ def main():
 
 # 	# THIS IS COMMENTED OUT JUST FOR TESTING
 # 	#image = glitchFuncs[random.randint(1,len(glitchFuncs))](image, filesize)
-	image = lineSwitch(image, filesize)
-	print "kwoefjwoifiwrgiergheirughuerighuierghuierghuierg"
+	image = echo(image, filesize)
+	print "echo running"
 	f = open("imgOut/output.bmp", "wb")
 	s = ""
 	for i in range(filesize):
