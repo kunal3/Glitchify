@@ -59,7 +59,7 @@ def main():
 				#print result
 
 				glitched = glitchFuncs[ data['func'] ](image, data)
-				print "Ran "+str(glitchFuncs[data['func']])
+				print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
 
 				f = open('imgOut/'+data['filename'], "wb")
 				s = ""
@@ -115,7 +115,7 @@ def replaceHex(image,data):
 	return image
 
 def echo(image, data):
-	pass
+	return image
 	# imageCopy = list(image)
 	# for i in range(36, data['filesize']-4):
 	# 	#s = hex(int(image[i],16)/2 + int(imageCopy[data['filesize'] - i],16)/2)[2:] 
@@ -125,7 +125,7 @@ def echo(image, data):
 	# 		s = "0"+s
 	# 	image[i] = s
 
-	# return image
+	#return image
 
 main()
 
