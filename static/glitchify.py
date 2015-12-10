@@ -38,8 +38,8 @@ def main():
 
 # 	# THIS IS COMMENTED OUT JUST FOR TESTING
 # 	#image = glitchFuncs[random.randint(1,len(glitchFuncs))](image, filesize)
-	image = echo(image, filesize)
-
+	image = lineSwitch(image, filesize)
+	print "LINESWITCH"
 	f = open("imgOut/output.bmp", "wb")
 	s = ""
 	for i in range(filesize):
@@ -52,7 +52,6 @@ def main():
 # #	print result
 
 def lineSwitch(image,filesize):
-	pass
 # 	modificationChance = 10  # 10% chance of line modification
 # 	lineWidth = 100  # how many 2 char hex numbers to group as a line
 # 	totalLines = len(image)/lineWidth
@@ -74,20 +73,19 @@ def lineSwitch(image,filesize):
 # 	return image
 
 def replaceHex(image,filesize):
-	pass
-# 	toReplace = image[random.randint(36, filesize - 8)]
-# 	replaceWith = binascii.hexlify(''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(3)]))
+	toReplace = image[random.randint(36, filesize - 8)]
+	replaceWith = binascii.hexlify(''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(3)]))
 	
-# 	for i in range(36,filesize/6):
-# 		if image[i]==toReplace:
-# 			image[i]=replaceWith
+	for i in range(36,filesize/6):
+		if image[i]==toReplace:
+			image[i]=replaceWith
 	
-# 	replaceWith = binascii.hexlify("  ")
-# 	for i in range(filesize/2, filesize-8):
-# 		if image[i]==toReplace:
-# 			image[i]=replaceWith
-# 			# try simply adding int values to the hex
-# 	return image
+	replaceWith = binascii.hexlify("  ")
+	for i in range(filesize/2, filesize-8):
+		if image[i]==toReplace:
+			image[i]=replaceWith
+			# try simply adding int values to the hex
+	return image
 
 def echo(image, filesize):
 	imageCopy = list(image)
