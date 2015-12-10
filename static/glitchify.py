@@ -103,7 +103,6 @@ def echo(image, data):
 		print int(image[i],16)
 		print hex(int(image[i],16))
 
-		a = hex(90) 
 		if len(s)%2:
 			s = "0"+s
 		image[i] = s
