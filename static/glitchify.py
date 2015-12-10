@@ -49,7 +49,7 @@ def main():
 
 				key = uuid.uuid1()
 				#result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
-				#os.system("curl -X PUT -d '{"+str(key)+":"+json.dumps(data)+"}'' https://glitchify.firebaseio.com/images.json")
+				os.system("curl -X PUT -d '{"+str(key)+":"+json.dumps(data)+"}'' https://glitchify.firebaseio.com/images.json")
 
 				glitched = glitchFuncs[ data['func'] ](image, data)
 				#print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
