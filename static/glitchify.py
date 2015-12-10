@@ -2,12 +2,8 @@ import random
 import binascii
 import string
 
-import requests
-from firebase import firebase
-
-import uuid
-
-fb = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
+#import requests
+#from firebase import firebase
 
 def main():
 
@@ -38,7 +34,7 @@ def main():
 # 	# THIS IS COMMENTED OUT JUST FOR TESTING
 # 	#image = glitchFuncs[random.randint(1,len(glitchFuncs))](image, filesize)
 	image = echo(image, filesize)
-	print "echo running"
+	print "zeta running"
 	f = open("imgOut/output.bmp", "wb")
 	s = ""
 	for i in range(filesize):
@@ -89,8 +85,12 @@ def replaceHex(image,filesize):
 def echo(image, filesize):
 	imageCopy = list(image)
 	for i in range(36, filesize-4):
-		s = binascii.hexlify(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)[2:]
-		#s = "00"
+		#s = hex(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)[2:]
+		s = int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2
+		s = str(s)
+		#print (int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)
+		#print str(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)
+		#print binascii.hexlify(str(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2))
 		if len(s)%2:
 			s = "0"+s
 		image[i] = s
