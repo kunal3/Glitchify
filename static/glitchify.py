@@ -2,8 +2,8 @@ import random
 import binascii
 import string
 
-# #import requests
-# #from firebase import firebase
+import requests
+from firebase import firebase
 
 # #import uuid
 
