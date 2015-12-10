@@ -3,6 +3,7 @@ import binascii
 import string
 import os
 import uuid
+import json
 
 def main():
 
@@ -10,8 +11,8 @@ def main():
 
 	glitchFuncs = {
 		1:	lineSwitch,
-		2:	replaceHex
-		#3:  echo
+		2:	replaceHex,
+		3:  echo
 		#4:
 	}
 
@@ -48,12 +49,10 @@ def main():
 
 				key = uuid.uuid1()
 				#result = fbase.post('/imgData', data, {'print': 'pretty'}, {'X_FANCY_HEADER': 'VERY FANCY'})
-				#print result
-
-				#json.dumps(data)
+				#os.system("curl -X PUT -d '{"+str(key)+":"+json.dumps(data)+"}'' https://glitchify.firebaseio.com/images.json")
 
 				glitched = glitchFuncs[ data['func'] ](image, data)
-				print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
+				#print "Ran "+str(glitchFuncs[data['func']])+" on " +str(filename)
 
 				f = open('imgOut/'+data['filename'], "wb")
 				s = ""
@@ -63,6 +62,7 @@ def main():
 				f.close()
 
 def lineSwitch(image,data):
+	return image
 	totalLines = (int)((len(image) - 36) / float(data['lineWidth']))
 	min = int(36 / data['lineWidth']) + (36 % data['lineWidth'] > 0)
 
@@ -79,6 +79,7 @@ def lineSwitch(image,data):
 	return image
 
 def replaceHex(image,data):
+	return image
 	for i in range(36,data['filesize']/6):
 		if image[i] == data['toReplace']:
 			image[i] = data['replaceWith']
