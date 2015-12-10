@@ -90,11 +90,9 @@ def replaceHex(image,filesize):
 # 	return image
 
 def echo(image, filesize):
-	copyChance = 5
 	imageCopy = list(image)
 	for i in range(36, filesize-4):
-#		if random.randint(1,100) <= copyChance:
-		s = hex(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)[2:]
+#		s = hex(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)[2:]
 		if len(s)%2:
 			s = "0"+s
 		image[i] = s
