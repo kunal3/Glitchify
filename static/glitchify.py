@@ -2,16 +2,13 @@ import random
 import binascii
 import string
 
-import requests
-from firebase import firebase
-
-import uuid
-
-fb = firebase.FirebaseApplication('https://glitchify.firebaseio.com', None)
+#import requests
+#from firebase import firebase
 
 def main():
 
  	inDirs = ['imgIn/', 'imgUpload/']
+
 	glitchFuncs = {
 		1:	lineSwitch,
 		2:	replaceHex,
