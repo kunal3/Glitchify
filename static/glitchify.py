@@ -22,7 +22,7 @@ def main():
 		for filename in os.listdir(os.getcwd()+"/"+inDir):
 			if os.path.splitext(filename)[1][1:] in ['jpg','jpeg','jiff','png','bmp']:
 				# imgToBmp.py
-				f = open(filename, "rb")
+				f = open(os.getcwd()+"/"+inDir+"/"+filename, "rb")
 				image = f.read()
 				f.close()
 				image = list(image)
