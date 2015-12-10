@@ -92,10 +92,10 @@ def replaceHex(image,filesize):
 def echo(image, filesize):
 	imageCopy = list(image)
 	for i in range(36, filesize-4):
-#		s = hex(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)[2:]
-		if len(s)%2:
-			s = "0"+s
-		image[i] = s
+		s = hex(int(image[i],16)/2 + int(imageCopy[filesize - i],16)/2)[2:]
+#		if len(s)%2:
+#			s = "0"+s
+#		image[i] = s
 
 	return image
 
