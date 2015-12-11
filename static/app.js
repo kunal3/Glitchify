@@ -7,7 +7,7 @@ glitchify.controller("ImageController", ['$scope', '$firebase', 'Firebase', func
 	var fb = new Firebase("https://glitchify.firebaseio.com/images");
 	console.log("fb: ", fb);
 	$scope.images = []
-	fb.orderByKey().limitToFirst(5).once('value', function(dataSnapshot) {
+	fb.orderByKey().limitToFirst(7).once('value', function(dataSnapshot) {
 	  if( dataSnapshot.val() ) {
 	  	var snap = dataSnapshot.val();
 	  	for(var key in snap) {
