@@ -23,27 +23,27 @@
         <script src="view.js"></script>-->
         <ol class="list">
             <li ng-repeat="image in images"  ng-init="init(image.key)">
-                {{image.key}}
                 <div id="showcase-container">
-                    <div class="showcase">
+                    <!-- <div class="showcase">
                         <div class="col-2">
                     
                             <div ng-click="updateCount('upvote')" class="up">▲</div>
                             <div contentEditable=true data-ph="NULL" class="count" ng-bind="count"></div>
-                            <!-- <style>
+                            <style>
                                 [contentEditable=true]:empty:not(:focus):before{
                                     content:attr(data-ph)
                                 }
-                            </style> -->
+                            </style>
                             <div ng-click="updateCount('downvote')" class="down">▼</div>    
                              
-                        </div>
-                        <div class="col-2">
+                        </div> -->
+                        <!-- <div class="col-2"> -->
+                        <div>
                             <img class="showcasepic" ng-src="{{image.path}}" alt="POOP">
                         </div>
                     </div>
                     
-                </div>
+                <!-- </div> -->
             </li>
             
             <!-- <li>
