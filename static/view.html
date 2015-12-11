@@ -13,96 +13,99 @@
     </head>
     
     <body ng-app="glitchify" ng-controller="ImageController">
-        <ol class="list">
-            <li ng-repeat="image in images"  ng-init="init(image.key)">
-                <div id="showcase-container">
-                    <!-- <div class="showcase">
-                        <div class="col-2">
-                    
-                            <div ng-click="updateCount('upvote')" class="up">▲</div>
-                            <div contentEditable=true data-ph="NULL" class="count" ng-bind="count"></div>
-                            <style>
-                                [contentEditable=true]:empty:not(:focus):before{
-                                    content:attr(data-ph)
-                                }
-                            </style>
-                            <div ng-click="updateCount('downvote')" class="down">▼</div>    
-                             
-                        </div> -->
-                        <!-- <div class="col-2"> -->
-                        <div>
-                            <img class="showcasepic" ng-src="{{image.path}}" alt="<insert image here>">
+        <div class="col-md-2">
+            <!-- <fieldset> -->
+                <input type="radio" name="modLevel" value="Low" /> Low<br />
+                <input type="radio" name="modLevel" value="Medium" /> Medium<br />
+                <input type="radio" name="modLevel" value="High" /> High<br />
+            <!-- </fieldset> -->
+        </div>
+        <div class="col-md-10">
+            <ol class="list">
+                <li ng-repeat="image in images"  ng-init="init(image.key)">
+                    <div id="showcase-container">
+                        <!-- <div class="showcase">
+                            <div class="col-2">
+                        
+                                <div ng-click="updateCount('upvote')" class="up">▲</div>
+                                <div contentEditable=true data-ph="NULL" class="count" ng-bind="count"></div>
+                                <style>
+                                    [contentEditable=true]:empty:not(:focus):before{
+                                        content:attr(data-ph)
+                                    }
+                                </style>
+                                <div ng-click="updateCount('downvote')" class="down">▼</div>    
+                                 
+                            </div> -->
+                            <!-- <div class="col-2"> -->
+                            <div>
+                                <img class="showcasepic" ng-src="{{image.path}}" alt="-insert-image-here>">
+                            </div>
                         </div>
+                        
+                    <!-- </div> -->
+                </li>
+                
+                <!-- <li>
+                    <div id="showcase-container">
+                        <div class="showcase">
+                            <div class="col-2">
+                        
+                                    <div class="up">▲</div>
+                                    <div class="count">0</div>
+                                    <div class="down">▼</div>    
+                                 
+                            </div>
+                            <div class="col-2">
+                                <img class="showcasepic" src="images/apple.png">
+                            </div>
+                        </div>
+                        
                     </div>
-                    
-                <!-- </div> -->
-            </li>
+                </li>
             
-            <!-- <li>
-                <div id="showcase-container">
-                    <div class="showcase">
-                        <div class="col-2">
-                    
-                                <div class="up">▲</div>
-                                <div class="count">0</div>
-                                <div class="down">▼</div>    
-                             
+                <li>
+                    <div id="showcase-container">
+                        <div class="showcase">
+                            <div class="col-2">
+                        
+                                    <div class="up">▲</div>
+                                    <div class="count">0</div>
+                                    <div class="down">▼</div>    
+                                 
+                            </div>
+                            <div class="col-2">
+                                <img class="showcasepic" src="images/apple.png">
+                            </div>
                         </div>
-                        <div class="col-2">
-                            <img class="showcasepic" src="images/apple.png">
-                        </div>
+                        
                     </div>
-                    
-                </div>
-            </li>
-        
-            <li>
-                <div id="showcase-container">
-                    <div class="showcase">
-                        <div class="col-2">
-                    
-                                <div class="up">▲</div>
-                                <div class="count">0</div>
-                                <div class="down">▼</div>    
-                             
-                        </div>
-                        <div class="col-2">
-                            <img class="showcasepic" src="images/apple.png">
-                        </div>
-                    </div>
-                    
-                </div>
-            </li>     -->
-        </ol>
-        <!-- <script>
-            $("div.up").click(function(event) {
-                /* Act on the event */
-                console.log("event.currentTarget: ", event.currentTarget);
-                $( this ).parent().prev().before( $( this ).parent() );
-                // $( this ).next().after( $( this ) );
-                // $(this).parent()
+                </li>     -->
+            </ol>
+        </div>
 
-                var items = $("ul.list").children();
-                console.log("items: ", items);
-                items.each( function(i,li) { console.log(i) } );
-            });
-            $("div.down").click(function(event) {
-                /* Act on the event */
-                console.log("event.currentTarget: ", event.currentTarget);
-                // $( this ).parent().prev().before( $( this ).parent() );
-                $( this ).parent().next().after( $( this ).parent() );
-                // $(this).parent()
+        <!-- BOOTSTRAP -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-                var items = $("ul.list").children();
-                console.log("items: ", items);
-                items.each( function(i,li) { console.log(i) } );
-            });
-        </script> -->
 
         <!-- JAVASCRIPTS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
         <script type="text/javascript" src="app.js"></script>
+
+        <script>
+            var request = {};
+            $("input[type=radio]").click(function(event) {
+                console.log($("input[type=radio]:checked").val());
+                request['modLevel'] = $("input[type=radio]:checked").val();
+            });
+            var reqs = new Firebase("https://glitchify.firebaseio.com/requests");
+            // var res = reqs.push(request);
+            console.log("reqs: ", reqs);
+        </script>
     </body>
 </html>

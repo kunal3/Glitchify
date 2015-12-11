@@ -5,7 +5,7 @@ glitchify = angular.module("glitchify", ["firebase"]);
 glitchify.controller("ImageController", ['$scope', '$firebase', 'Firebase', function ($scope, $firebase, Firebase) {
 	// console.log("ImageController");
 	var fb = new Firebase("https://glitchify.firebaseio.com/images");
-	console.log("fb: ", fb);
+	// console.log("fb: ", fb);
 	$scope.images = []
 	fb.orderByKey().limitToFirst(7).once('value', function(dataSnapshot) {
 	  if( dataSnapshot.val() ) {
@@ -20,7 +20,7 @@ glitchify.controller("ImageController", ['$scope', '$firebase', 'Firebase', func
 	  		$scope.$digest()
 	  	}
 	  }
-	  console.log("$scope.images: ", $scope.images);
+	  // console.log("$scope.images: ", $scope.images);
 	});
 
 	$scope.init = function(imgKey) {
