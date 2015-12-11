@@ -21,11 +21,22 @@
                 <button name="upload" class="btn btn-primary" value="Upload">Upload</button>
             </div>
             <div class="row container">
-                <div class="btn-group" role="group">
-                    <button name="mod" class="btn btn-primary" value="Low">Low</button>
-                    <button name="mod" class="btn btn-primary" value="Middle">Middle</button>
-                    <button name="mod" class="btn btn-primary" value="High">High</button>
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-primary">
+                    <input type="radio" name="mod" id="low" autocomplete="off" checked> Low
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="mod" id="med" autocomplete="off"> Medium
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="mod" id="high" autocomplete="off"> High
+                  </label>
                 </div>
+                <!-- <div class="btn-group" role="group">
+                    <button name="mod" class="btn btn-primary" value="Low">Low</button>
+                    <button name="mod" class="btn btn-primary" value="Medium">Medium</button>
+                    <button name="mod" class="btn btn-primary" value="High">High</button>
+                </div> -->
             </div>
         </div>
         <div class="col-md-9" id="wrapper">
@@ -123,6 +134,10 @@
                 // var res = reqs.push(request);
                 // console.log("res: ", res);
             });
+            $.getJSON("http://smart-ip.net/geoip-json?callback=?",
+                function(data){
+                    alert( "Your ip: " + data.host);
+                });
         </script>
     </body>
 </html>
