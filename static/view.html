@@ -13,14 +13,6 @@
     </head>
     
     <body ng-app="glitchify" ng-controller="ImageController">
-        <!--<div class="vote roundrect">
-            <div class="increment up"></div>
-            <div class="increment down"></div>
-  
-            <div class="count">4</div>
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="view.js"></script>-->
         <ol class="list">
             <li ng-repeat="image in images"  ng-init="init(image.key)">
                 <div id="showcase-container">
@@ -39,7 +31,7 @@
                         </div> -->
                         <!-- <div class="col-2"> -->
                         <div>
-                            <img class="showcasepic" ng-src="{{image.path}}" alt="POOP">
+                            <img class="showcasepic" ng-src="{{image.path}}" alt="<insert image here>">
                         </div>
                     </div>
                     
