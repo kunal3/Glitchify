@@ -1,6 +1,6 @@
 header {
     height: 80px;
-    background-color: #ffffff;
+    background-color: #E7E8EF;
 }
 #header-container {
     width: 75%;
@@ -11,7 +11,7 @@ header {
     float: left;
 }
 .logo {
-    padding-top: 30px;   
+    padding-top: .4em;  
 }
 #upload {
     float: right;
