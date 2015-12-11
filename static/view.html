@@ -14,37 +14,46 @@
     
     <body ng-app="glitchify" ng-controller="ImageController">
         <div class="col-md-2">
-            <!-- <fieldset> -->
-                <input type="radio" name="modLevel" value="Low" /> Low<br />
-                <input type="radio" name="modLevel" value="Medium" /> Medium<br />
-                <input type="radio" name="modLevel" value="High" /> High<br />
-            <!-- </fieldset> -->
+            <div class="row container">
+                <p>Select a stock image from the right, or upload an image below.</p>
+            </div>
+            <div class="row container">
+                <button name="upload" class="btn btn-primary" value="Upload">Upload</button>
+            </div>
+            <div class="row container">
+                <div class="btn-group" role="group">
+                    <button name="mod" class="btn btn-primary" value="Low">Low</button>
+                    <button name="mod" class="btn btn-primary" value="Middle">Middle</button>
+                    <button name="mod" class="btn btn-primary" value="High">High</button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-10">
-            <ol class="list">
-                <li ng-repeat="image in images"  ng-init="init(image.key)">
-                    <div id="showcase-container">
-                        <!-- <div class="showcase">
-                            <div class="col-2">
-                        
-                                <div ng-click="updateCount('upvote')" class="up">▲</div>
-                                <div contentEditable=true data-ph="NULL" class="count" ng-bind="count"></div>
-                                <style>
-                                    [contentEditable=true]:empty:not(:focus):before{
-                                        content:attr(data-ph)
-                                    }
-                                </style>
-                                <div ng-click="updateCount('downvote')" class="down">▼</div>    
-                                 
-                            </div> -->
-                            <!-- <div class="col-2"> -->
-                            <div>
-                                <img class="showcasepic" ng-src="{{image.path}}" alt="-insert-image-here>">
-                            </div>
+        <div class="col-md-10" id="wrapper">
+            <div class="columns">
+            <div class="pin" ng-repeat="image in images"  ng-init="init(image.key)">
+                <div id="showcase-container">
+                    <!-- <div class="showcase">
+                        <div class="col-2">
+                    
+                            <div ng-click="updateCount('upvote')" class="up">▲</div>
+                            <div contentEditable=true data-ph="NULL" class="count" ng-bind="count"></div>
+                            <style>
+                                [contentEditable=true]:empty:not(:focus):before{
+                                    content:attr(data-ph)
+                                }
+                            </style>
+                            <div ng-click="updateCount('downvote')" class="down">▼</div>    
+                             
+                        </div> -->
+                        <!-- <div class="col-2"> -->
+                        <div>
+                            <img class="showcasepic img-responsive" ng-src="{{image.path}}" alt="-insert-image-here>">
                         </div>
-                        
-                    <!-- </div> -->
-                </li>
+                    </div>
+                    
+                <!-- </div> -->
+            </div>
+            </div>
                 
                 <!-- <li>
                     <div id="showcase-container">
@@ -81,7 +90,6 @@
                         
                     </div>
                 </li>     -->
-            </ol>
         </div>
 
         <!-- BOOTSTRAP -->
@@ -98,14 +106,23 @@
         <script type="text/javascript" src="app.js"></script>
 
         <script>
-            var request = {};
-            $("input[type=radio]").click(function(event) {
-                console.log($("input[type=radio]:checked").val());
-                request['modLevel'] = $("input[type=radio]:checked").val();
+            var request = {
+                'run': 0,
+                'modLevel': "",
+                'upload': 0,
+                'filename': "test.jpg"
+            };
+
+            $("button[name=mod]").click(function(event) {
+                console.log(this.value);
+                request.modLevel = this.value;
+                request.run = 1;
+
+                console.log("request: ", request);
+                var reqs = new Firebase("https://glitchify.firebaseio.com/requests");
+                // var res = reqs.push(request);
+                // console.log("res: ", res);
             });
-            var reqs = new Firebase("https://glitchify.firebaseio.com/requests");
-            // var res = reqs.push(request);
-            console.log("reqs: ", reqs);
         </script>
     </body>
 </html>
