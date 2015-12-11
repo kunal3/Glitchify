@@ -2,7 +2,7 @@
 <html >
     <head>
         <meta charset="utf-8">
-        <title>Glitchify View</title>
+        <title>Glitchify</title>
         <!-- Google web fonts -->
         <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
 
@@ -13,14 +13,18 @@
     </head>
     
     <body ng-app="glitchify" ng-controller="ImageController">
-        <div class="col-md-3">
-            <div class="row container" id="explanation">
-                <p>Select a stock image from the right, or upload an image below.</p>
+        <header>
+        <div id="header-container">
+            <div class="col-3">
+                <img class="logo" src="images/logo.bmp" height="69" width="268">
             </div>
-            <div class="row container">
-                <button name="upload" class="btn btn-primary" value="Upload">Upload</button>
+            <div class="col-3">
+                <button name="upload" class="btn btn-primary" value="Upload" id="upload">Upload</button>
             </div>
-            <div class="row container">
+            <div class="col-3">
+                <!-- <button name="mod" class="btn btn-primary" value="Low" id="mod">Low</button>
+                <button name="mod" class="btn btn-primary" value="Middle" id="mod">Medium</button>
+                <button name="mod" class="btn btn-primary" value="High" id="mod">High</button> -->
                 <div class="btn-group" data-toggle="buttons">
                   <label class="btn btn-primary">
                     <input type="radio" name="mod" id="low" autocomplete="off" checked> Low
@@ -32,13 +36,10 @@
                     <input type="radio" name="mod" id="high" autocomplete="off"> High
                   </label>
                 </div>
-                <!-- <div class="btn-group" role="group">
-                    <button name="mod" class="btn btn-primary" value="Low">Low</button>
-                    <button name="mod" class="btn btn-primary" value="Medium">Medium</button>
-                    <button name="mod" class="btn btn-primary" value="High">High</button>
-                </div> -->
             </div>
-        </div>
+        </div><!-- Header-Container Ends Here -->
+        </header>
+        
         <div class="col-md-9" id="wrapper">
             <div class="columns">
             <div class="pin" ng-repeat="image in images"  ng-init="init(image.key)">
