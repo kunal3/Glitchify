@@ -16,9 +16,9 @@
 
 		<form id="upload" method="post" action="upload.php" enctype="multipart/form-data">
 			<div id="drop">
-				Drop Here
+				Drop an image here
 
-				<a>Browse</a>
+				<a>Choose file ...</a>
 				<input type="file" name="upl" multiple />
 			</div>
 
@@ -29,9 +29,9 @@
 		</form>
 
         <footer>
-            <div id="tzine-actions">
+            <!-- <div id="tzine-actions">
 	            <a id="tzine-download" href="view.html" target="_blank">View</a>
-            </div>
+            </div> -->
         </footer>
         
 		<!-- JavaScript Includes -->
@@ -42,9 +42,27 @@
 		<script src="jquery.ui.widget.js"></script>
 		<script src="jquery.iframe-transport.js"></script>
 		<script src="jquery.fileupload.js"></script>
+
+		<!-- Firebase -->
+		<script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 		
 		<!-- Our main JS file -->
 		<script src="script.js"></script>
+		<script type="text/javascript">
+			function onSuccess (filename) {
+				var request = {
+          'run': 1,
+          'modLevel': "Medium",
+          'upload': 1,
+          'filename': filename
+        };
 
+        var reqs = new Firebase("https://glitchify.firebaseio.com/requests");
+        var res = reqs.push(request);
+        console.log("res: ", res);
+
+        window.location = "index.html";
+			}
+		</script>
 	</body>
 </html>

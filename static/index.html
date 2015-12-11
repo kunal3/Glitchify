@@ -10,16 +10,26 @@
         <link href="view-style.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+        <script type="text/javascript">
+            //paste this code under head tag or in a seperate js file.
+            // Wait for window load
+            $(window).load(function() {
+                // Animate loader off screen
+                $(".se-pre-con").fadeOut("slow");;
+            });
+        </script>
     </head>
     
     <body ng-app="glitchify" ng-controller="ImageController">
-        <header>
+    <header>
         <div id="header-container">
             <div class="col-3">
                 <img class="logo" src="images/logo.bmp">
             </div>
             <div class="col-3">
-                <button name="upload" class="btn btn-primary" value="Upload" id="upload">Upload</button>
+                <a href="upload.html" target="_self" role="button" name="upload" class="btn btn-primary" value="Upload" id="upload">Upload</a>
             </div>
             <div class="col-3">
                 <!-- <button name="mod" class="btn btn-primary" value="Low" id="mod">Low</button>
@@ -38,11 +48,11 @@
                 </div>
             </div>
         </div><!-- Header-Container Ends Here -->
-        </header>
+    </header>
         
         <div class="col-md-9" id="wrapper">
             <div class="columns">
-            <div class="pin" ng-repeat="image in images"  ng-init="init(image.key)">
+            <div class="pin" ng-repeat="image in images" > <!-- ng-init="init(image.key)" -->
                 <div id="showcase-container">
                     <!-- <div class="showcase">
                         <div class="col-2">
@@ -135,10 +145,6 @@
                 // var res = reqs.push(request);
                 // console.log("res: ", res);
             });
-            $.getJSON("http://smart-ip.net/geoip-json?callback=?",
-                function(data){
-                    alert( "Your ip: " + data.host);
-                });
         </script>
     </body>
 </html>

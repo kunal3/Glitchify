@@ -7,48 +7,45 @@ glitchify.controller("ImageController", ['$scope', '$firebase', 'Firebase', func
 	var fb = new Firebase("https://glitchify.firebaseio.com/images");
 	// console.log("fb: ", fb);
 	$scope.images = []
-	fb.orderByKey().limitToFirst(7).once('value', function(dataSnapshot) {
+	fb.once('value', function(dataSnapshot) {
 	  if( dataSnapshot.val() ) {
 	  	var snap = dataSnapshot.val();
-	  	for(var key in snap) {
-	  		// console.log("key: ", key);
-	  		// console.log("snap[key]['filename']: ", snap[key]['filename']);
+	  	for (i = 0; i < 7; i++) { 
 	  		$scope.images.push({
-	  			'path': 'imgOut/'+snap[key]['filename'],
-	  			'key': key
+	  			'path': 'imgOut/'+i.toString()+'_output.bmp'
 	  		});
 	  		$scope.$digest()
-	  	}
+			}
 	  }
 	  // console.log("$scope.images: ", $scope.images);
 	});
 
-	$scope.init = function(imgKey) {
-		// bind Firebase data to scope variable 'data'
-		$scope.data = $firebase(new Firebase(fb + imgKey));
+	// $scope.init = function(imgKey) {
+	// 	// bind Firebase data to scope variable 'data'
+	// 	$scope.data = $firebase(new Firebase(fb + imgKey));
 
-		// monitor data for updates and check weather setting
-		$scope.data.$on('loaded', checkVotes);
-		$scope.data.$on('change', checkVotes);
+	// 	// monitor data for updates and check weather setting
+	// 	$scope.data.$on('loaded', checkVotes);
+	// 	$scope.data.$on('change', checkVotes);
 
-		$scope.updateCount = function(direction) {
-			//Increment counter in Firebase using a transaction
-			var directionRef = new Firebase(fb + '/' + imgKey + '/' + direction);
-			directionRef.transaction(function(current_val) {
-				// initialize the data if this imgKey hasn't been saved before
-				if( !current_val ) { current_val = { upvote: 0, downvote: 0, direction: 0 }; }
+	// 	$scope.updateCount = function(direction) {
+	// 		//Increment counter in Firebase using a transaction
+	// 		var directionRef = new Firebase(fb + '/' + imgKey + '/' + direction);
+	// 		directionRef.transaction(function(current_val) {
+	// 			// initialize the data if this imgKey hasn't been saved before
+	// 			if( !current_val ) { current_val = { upvote: 0, downvote: 0, direction: 0 }; }
 
-				current_val.direction++;
-				current_val[direction]++;
-				return current_val;
-			});
-		};
-	};
+	// 			current_val.direction++;
+	// 			current_val[direction]++;
+	// 			return current_val;
+	// 		});
+	// 	};
+	// };
 
-	//Check values to display sun or fog image
-	function checkVotes() {
-		$scope.count = $scope.data.upvote - $scope.data.downvote;
-	}
+	// //Check values to display sun or fog image
+	// function checkVotes() {
+	// 	$scope.count = $scope.data.upvote - $scope.data.downvote;
+	// }
 
 	// fb.once('value', function(dataSnapshot) {
 	//   if( dataSnapshot.val() ) {
@@ -98,7 +95,3 @@ glitchify.controller("ImageController", ['$scope', '$firebase', 'Firebase', func
 	// 										{'path': 'images/ipad.png'}];
 	// }
 // }
-
-function VoteController($scope, $firebase, Firebase) {
-	
-}

@@ -14,6 +14,10 @@ if(isset($_FILES['upl']) && $_FILES['upl']['error'] == 0){
 
 	if(move_uploaded_file($_FILES['upl']['tmp_name'], 'imgUpload/'.$_FILES['upl']['name'])){
 		echo '{"status":"success"}';
+		echo '<script type="text/javascript">'
+		   , 'onSuccess('.$_FILES['upl']['name'].');'
+		   , '</script>'
+		;
 		exit;
 	}
 }
