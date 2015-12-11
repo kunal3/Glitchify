@@ -13,8 +13,8 @@
     </head>
     
     <body ng-app="glitchify" ng-controller="ImageController">
-        <div class="col-md-2">
-            <div class="row container">
+        <div class="col-md-3">
+            <div class="row container" id="explanation">
                 <p>Select a stock image from the right, or upload an image below.</p>
             </div>
             <div class="row container">
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-10" id="wrapper">
+        <div class="col-md-9" id="wrapper">
             <div class="columns">
             <div class="pin" ng-repeat="image in images"  ng-init="init(image.key)">
                 <div id="showcase-container">
